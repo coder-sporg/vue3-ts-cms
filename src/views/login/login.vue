@@ -1,14 +1,14 @@
 <template>
-  <router-view></router-view>
+  <div>Login</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
 export default defineComponent({
-  name: 'App',
-  components: {}
+  name: 'login',
+  setup() {
+    return {}
+  }
 })
 </script>
-
-<style lang="less"></style>
+<style scoped></style>
