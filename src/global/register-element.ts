@@ -1,9 +1,27 @@
 import { App } from 'vue'
 import 'element-plus/dist/index.css'
 
-import { ElButton } from 'element-plus/lib/components'
+import {
+  ElTabs,
+  ElTabPane,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElCheckbox,
+  ElLink,
+  ElButton
+} from 'element-plus/lib/components'
 
-const components = [ElButton]
+const components = [
+  ElTabs,
+  ElTabPane,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElCheckbox,
+  ElLink,
+  ElButton
+]
 
 export default function (app: App): void {
   for (const component of components) {

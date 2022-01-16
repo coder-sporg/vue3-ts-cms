@@ -6,6 +6,9 @@ import { globalRegister } from './global'
 import router from './router/index'
 import store from './store/index'
 
+import 'normalize.css'
+import './assets/css/index.less'
+
 const app: App = createApp(rootApp)
 
 // 注册element-plus
