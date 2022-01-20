@@ -2,7 +2,7 @@
   <div class="account">
     <el-form label-width="60px">
       <el-form-item label="手机号" prop="phone">
-        <el-input v-model="phone"></el-input>
+        <el-input v-model="phone" placeholder="请输入手机号"></el-input>
       </el-form-item>
       <el-form-item label="验证码" prop="code">
         <div class="verify-code">
@@ -24,8 +24,13 @@ export default defineComponent({
       code: ''
     })
 
+    const loginAction = () => {
+      console.log('手机登录')
+    }
+
     return {
-      ...toRefs(account)
+      ...toRefs(account),
+      loginAction
     }
   }
 })

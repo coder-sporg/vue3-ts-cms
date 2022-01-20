@@ -35,7 +35,7 @@ class YSRequest {
     // 所有实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('all request')
+        // console.log('all request')
         if (this.showLoading) {
           ;(this.loading as any) = ElLoading.service({
             lock: true,
@@ -91,12 +91,12 @@ class YSRequest {
           }
 
           // 将showLoading设置为true，不影响下一次请求
-          this.showLoading = DEFAULT_LOADING
+          // this.showLoading = DEFAULT_LOADING
           resolve(res)
         },
         (err) => {
           // 将showLoading设置为true，不影响下一次请求
-          this.showLoading = DEFAULT_LOADING
+          // this.showLoading = DEFAULT_LOADING
           reject(err)
         }
       )

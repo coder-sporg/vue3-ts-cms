@@ -1,12 +1,15 @@
 import YSRequest from './request'
 import { BASE_URL, TIME_OUT } from './request/config'
 
+import localCache from '@/utils/cache'
+
 const httpService = new YSRequest({
   baseURL: BASE_URL,
   timeout: TIME_OUT,
+  showLoading: false,
   interceptors: {
     requestInterceptor: (config: any) => {
-      const token = 'Lorem ipsum dolor sit amet consectetur adipisicing elit'
+      const token = localCache.getCache('token') ?? ''
       if (token) {
         config.headers.Authorization = `Bearer ${token}`
       }
