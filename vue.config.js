@@ -5,6 +5,17 @@ module.exports = {
   // outputDir: './build'
   // 打包本地运行
   // publicPath: './',
+  devServer: {
+    proxy: {
+      '^/api': {
+        target: 'http://152.136.185.210:4000',
+        pathRewrite: {
+          '^/api': ''
+        },
+        shangeOrigin: true
+      }
+    }
+  },
   // 2.配置方式二：和webpack属性完全一致
   // configureWebpack: {
   //   resolve: {
@@ -13,16 +24,16 @@ module.exports = {
   //     }
   //   }
   // }
-  // configureWebpack: (config) => {
-  //   config.resolve.alias = {
-  //     '@': path.resolve(__dirname, 'src'),
-  //     views: '@/views'
-  //   }
-  // }
-  // 3.配置方式三:
-  chainWebpack: (config) => {
-    config.resolve.alias
-      .set('@', path.resolve(__dirname, 'src'))
-      .set('components', '@/components')
+  configureWebpack: (config) => {
+    config.resolve.alias = {
+      '@': path.resolve(__dirname, 'src'),
+      views: '@/views'
+    }
   }
+  // 3.配置方式三:
+  // chainWebpack: (config) => {
+  //   config.resolve.alias
+  //     .set('@', path.resolve(__dirname, 'src'))
+  //     .set('components', '@/components')
+  // }
 }
