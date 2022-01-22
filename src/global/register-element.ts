@@ -9,7 +9,14 @@ import {
   ElInput,
   ElCheckbox,
   ElLink,
-  ElButton
+  ElButton,
+  ElContainer,
+  ElHeader,
+  ElAside,
+  ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu
 } from 'element-plus/lib/components'
 
 const components = [
@@ -20,7 +27,14 @@ const components = [
   ElInput,
   ElCheckbox,
   ElLink,
-  ElButton
+  ElButton,
+  ElContainer,
+  ElHeader,
+  ElAside,
+  ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu
 ]
 
 export default function (app: App): void {
