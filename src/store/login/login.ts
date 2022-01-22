@@ -1,6 +1,8 @@
 import { Module } from 'vuex'
 import router from '@/router'
 
+import { mapMenusToRoutes } from '@/utils/map-menus'
+
 import { ILoginState } from './types'
 import { IRootState } from '../types'
 
@@ -32,6 +34,14 @@ const loginModule: Module<ILoginState, IRootState> = {
     },
     changeUserMenus(state, userMenus: any) {
       state.userMenus = userMenus
+
+      // 动态添加路由
+      const routes = mapMenusToRoutes(userMenus)
+
+      // 将路由映射到router.main.children
+      routes.forEach((route) => {
+        router.addRoute('main', route)
+      })
     }
   },
   actions: {

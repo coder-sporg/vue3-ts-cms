@@ -21,7 +21,10 @@
               <span>{{ menu.name }}</span>
             </template>
             <template v-for="item in menu.children" :key="item.id">
-              <el-menu-item :index="item.id + ''">
+              <el-menu-item
+                :index="item.id + ''"
+                @click="handler_navigate(item)"
+              >
                 <i v-if="item.icon" :class="item.icon"></i>
                 <span>{{ item.name }}</span>
               </el-menu-item>
@@ -42,6 +45,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useStore } from '@/store/index'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   props: {
@@ -55,8 +59,18 @@ export default defineComponent({
     const userMenus = computed(() => {
       return store.state.login.userMenus
     })
+
+    // 点击导航跳转相应的页面
+    const router = useRouter()
+    const handler_navigate = (menu: any) => {
+      router.push({
+        path: menu.url ?? '/not-found'
+      })
+    }
+
     return {
-      userMenus
+      userMenus,
+      handler_navigate
     }
   }
 })
