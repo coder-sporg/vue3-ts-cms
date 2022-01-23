@@ -5,13 +5,18 @@
       :class="isFold ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
       @click="handleFoldClick"
     ></i>
+    <nav-suport />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import NavSuport from './cpns/nav-suport.vue'
 
 export default defineComponent({
+  components: {
+    NavSuport
+  },
   setup(props, { emit }) {
     const isFold = ref(false)
 
@@ -34,6 +39,7 @@ export default defineComponent({
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   .trigger {
     font-size: 25px;
