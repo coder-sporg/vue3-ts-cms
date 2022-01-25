@@ -81,8 +81,14 @@ export default defineComponent({
 }
 
 .el-main {
+  height: calc(100% - 64px);
   color: #333;
   text-align: center;
   background-color: #f0f6fa;
+
+  .page-info {
+    padding: 16px;
+    background-color: #fff;
+  }
 }
 </style>

@@ -22,7 +22,12 @@ import {
   ElBadge,
   ElDropdownItem,
   ElDropdownMenu,
-  ElAvatar
+  ElAvatar,
+  ElRow,
+  ElCol,
+  ElSelect,
+  ElOption,
+  ElDatePicker
 } from 'element-plus/lib/components'
 
 const components = [
@@ -46,7 +51,15 @@ const components = [
   ElDropdown,
   ElDropdownMenu,
   ElDropdownItem,
-  ElAvatar
+  ElAvatar,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElSelect,
+  ElOption,
+  ElDatePicker,
+  ElRow,
+  ElCol
 ]
 
 export default function (app: App): void {
