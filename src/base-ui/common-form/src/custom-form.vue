@@ -1,5 +1,8 @@
 <template>
   <div class="custom-form">
+    <div class="header">
+      <slot name="header"></slot>
+    </div>
     <el-form :label-width="labelWidth" :size="size">
       <el-row>
         <template v-for="item in formItems" :key="item.label">
@@ -45,18 +48,21 @@
         </template>
       </el-row>
     </el-form>
+    <div class="footer">
+      <slot name="footer"></slot>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, PropType, ref, watch } from 'vue'
 import { IFormItem } from '../types'
 
 export default defineComponent({
   props: {
     modelValue: {
       type: Object,
-      require: true
+      required: true
     },
     labelWidth: {
       type: [String, Number],
@@ -85,8 +91,23 @@ export default defineComponent({
       default: () => ({ padding: '0 30px' })
     }
   },
-  setup() {
-    return {}
+  emits: ['update: modelValue'],
+  setup(props, { emit }) {
+    const formData = ref({ ...props.modelValue })
+
+    watch(
+      formData,
+      (newValue) => {
+        emit('update: modelValue', newValue)
+      },
+      {
+        deep: true
+      }
+    )
+
+    return {
+      formData
+    }
   }
 })
 </script>

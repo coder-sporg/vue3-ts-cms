@@ -1,35 +1,23 @@
 <template>
   <div class="user">
-    <div class="search">
-      <custom-form v-bind="searchFormConfig" v-model="formData"></custom-form>
-    </div>
+    <page-search :searchFormConfig="searchFormConfig" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
-import CustomForm from '@/base-ui/common-form'
+import { defineComponent } from 'vue'
+import PageSearch from '@/components/page-search'
 
 import { searchFormConfig } from './config/search.config'
 
 export default defineComponent({
   name: 'user',
   components: {
-    CustomForm
+    PageSearch
   },
   setup() {
-    const formData = reactive({
-      id: '',
-      name: '',
-      realName: '',
-      cellphone: '',
-      enable: '',
-      createAt: ''
-    })
-
     return {
-      searchFormConfig,
-      formData
+      searchFormConfig
     }
   }
 })
