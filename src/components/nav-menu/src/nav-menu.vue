@@ -5,7 +5,7 @@
       <div class="name">Vue3+TS</div>
     </div>
     <el-menu
-      default-active="39"
+      :default-active="defaultValue"
       class="el-menu-vertical"
       background-color="#0c2135"
       text-color="#b7bdc3"
@@ -43,9 +43,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 import { useStore } from '@/store/index'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+
+import { pathMapToMenu } from '@/utils/map-menus'
 
 export default defineComponent({
   props: {
@@ -60,6 +62,12 @@ export default defineComponent({
       return store.state.login.userMenus
     })
 
+    const route = useRoute()
+    const currentPath = route.path
+
+    const menu = pathMapToMenu(userMenus.value, currentPath)
+    const defaultValue = ref(menu.id + '')
+
     // 点击导航跳转相应的页面
     const router = useRouter()
     const handler_navigate = (menu: any) => {
@@ -70,6 +78,7 @@ export default defineComponent({
 
     return {
       userMenus,
+      defaultValue,
       handler_navigate
     }
   }
