@@ -113,7 +113,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="less">
-.custom-form {
-  padding-top: 22px;
-}
+// .custom-form {
+//   padding-top: 22px;
+// }
 </style>

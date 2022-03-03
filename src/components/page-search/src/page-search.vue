@@ -48,6 +48,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.page-search {
+  padding: 16px 0;
+}
 .header {
   color: #409eff;
 }
