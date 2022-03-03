@@ -1,7 +1,7 @@
 import httpService from '../index'
 
-import { IAccount } from './type'
-import { IDataType, ILoginResult } from './type'
+import { IAccount, ILoginResult } from './type'
+import { IDataType } from '../types'
 
 enum LoginAPI {
   AccountLogin = '/login',
