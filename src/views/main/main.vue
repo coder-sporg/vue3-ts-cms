@@ -87,7 +87,7 @@ export default defineComponent({
   background-color: #f0f6fa;
 
   .page-info {
-    padding: 16px;
+    // padding: 16px;
     background-color: #fff;
   }
 }
